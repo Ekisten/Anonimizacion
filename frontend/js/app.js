@@ -38,7 +38,10 @@ function procesar() {
 
     // Se sustituyen los números de teléfono móviles españoles.
     // Empiezan por 6, 7, 8 o 9 y tienen 9 cifras en total:
-    .replace(/\b[6-9]\d{8}\b/g, "[TELEFONO]");
+    .replace(/\b[6-9]\d{8}\b/g, "[TELEFONO]")
+
+    // Se sustituyen los email tipo jose@example.es
+    .replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, "[EMAIL]");
 
   // Se crea un objeto llamado "datos" que agrupa toda la información final:
   const datos = {
