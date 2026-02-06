@@ -51,6 +51,11 @@ function procesar() {
     
   } else if (chkDiccionario.checked) {
 
+    let diccionario = [
+      "Jose",
+      "Maria",
+      "Pedro"
+    ]
     resultado = anonimizarDiccionario(texto);
 
   }
