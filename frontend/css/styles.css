@@ -26,13 +26,21 @@ textarea {
   margin-bottom: 15px;
 }
 
+.options label {
+  display: flex;
+  gap: 10px;
+}
+
 /* Botón de procesar y guardar*/
 button {
   padding: 10px 15px;
   background-color: #007acc;
+  width: 100%;
   color: white;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 
 /* Hover del botón de procesar y guardar */
