@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Los carácteres Unicode de página web -->
+        <meta charset="UTF-8">
+        <!-- El título de la página web -->
+        <title>Aplicación de Anonimización</title>
+        <!-- Enlace a un archivo de estilos -->
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <!-- Contenedor genérico de un bloque -->
+        <div class="window">
+            <!-- La cabecera de la página web -->
+            <h2>Aplicación de Anonimización</h2>
+            
+            <!-- Campos de entrada de texto -->
+            <textarea id="texto" placeholder="Introduce el texto a anonimizar..."></textarea>
+
+            <!-- Contenedor genérico de aplicación anonimización -->
+            <div class="options">
+                <!-- Texto descriptivo a un campo formulario -->
+                <label>
+                    <!-- Campo interactivo dentro de formulario Regex -->
+                    <input type="radio" name="metodo" value="regex" checked>
+                    <!-- Estructura de párrafo de texto Regex -->
+                    <p>Expresiones regulares</p>
+                </label>
+                <label>
+                    <!-- Campo interactivo dentro de formulario IA -->
+                    <input type="radio" name="metodo" value="ia">
+                    <!-- Estructura de párrafo de texto IA -->
+                    <p>IA</p>
+                </label>
+                <label>
+                    <!-- Campo interactivo dentro de formulario diccionario -->
+                    <input type="radio" name="metodo" value="diccionario">
+                    <!-- Estructura de párrafo de texto diccionario -->
+                    <p>Diccionario</p>
+                </label>
+            </div>
+
+            <!-- Botón de procesar y guardar -->
+            <button id="procesar">Procesar y guardar</button>
+
+            <!-- Estructura de párrafo de texto con el mensaje-->
+            <p id="mensaje"></p>
+        </div>
+        
+        <!-- Enlace a un archivo de javascript -->
+        <script src="./js/app.js"></script>
+    </body>
+</html>
