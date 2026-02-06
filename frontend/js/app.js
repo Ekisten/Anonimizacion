@@ -3,6 +3,8 @@
 // Cuando el botón es pulsado, se ejecuta la función llamada "procesar":
 document.getElementById("procesar").addEventListener("click", procesar);
 
+const chkDiccionario = document.querySelector("#chkDiccionario");
+
 // Definición de la función "procesar", que se ejecuta al hacer clic en el botón:
 function procesar() {
 
@@ -29,19 +31,22 @@ function procesar() {
   // Se parte del texto original y se aplican sustituciones con expresiones regulares:
   let resultado = texto
 
-    // Se sustituyen los DNIs españoles.
-    // \b asegura que sea una palabra completa.
-    // \d{8} busca exactamente 8 números.
-    // [A-Z] busca una letra mayúscula.
-    // g indica que se busquen todas las coincidencias:
-    .replace(/\b\d{8}[A-Z]\b/g, "[DNI]")
+  if (chkDiccionario.checked) {
+    resultado = texto
+      // Se sustituyen los DNIs españoles.
+      // \b asegura que sea una palabra completa.
+      // \d{8} busca exactamente 8 números.
+      // [A-Z] busca una letra mayúscula.
+      // g indica que se busquen todas las coincidencias:
+      .replace(/\b\d{8}[A-Z]\b/g, "[DNI]")
 
-    // Se sustituyen los números de teléfono móviles españoles.
-    // Empiezan por 6, 7, 8 o 9 y tienen 9 cifras en total:
-    .replace(/\b[6-9]\d{8}\b/g, "[TELEFONO]")
+      // Se sustituyen los números de teléfono móviles españoles.
+      // Empiezan por 6, 7, 8 o 9 y tienen 9 cifras en total:
+      .replace(/\b[6-9]\d{8}\b/g, "[TELEFONO]")
 
-    // Se sustituyen los email tipo jose@example.es
-    .replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, "[EMAIL]");
+      // Se sustituyen los email tipo jose@example.es
+      .replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, "[EMAIL]");
+  }
 
   // Se crea un objeto llamado "datos" que agrupa toda la información final:
   const datos = {
