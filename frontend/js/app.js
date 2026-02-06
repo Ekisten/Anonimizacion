@@ -3,7 +3,9 @@
 // Cuando el botón es pulsado, se ejecuta la función llamada "procesar":
 document.getElementById("procesar").addEventListener("click", procesar);
 
-const chkDiccionario = document.querySelector("#chkDiccionario");
+const chkExpReg = document.querySelector("#chkExpReg");
+const chkIA = document.getElementById("chkAi");
+const chkDiccionario = document.getElementById("chkDiccionario");
 
 // Definición de la función "procesar", que se ejecuta al hacer clic en el botón:
 function procesar() {
@@ -22,16 +24,13 @@ function procesar() {
 
     // Si el texto está vacío, se muestra un mensaje de aviso al usuario:
     mensaje.innerText = "Introduce un texto";
-
-    // return detiene la ejecución de la función para que no continúe:
-    return;
   }
 
   // Se crea una variable llamada "resultado" que contendrá el texto anonimizado.
   // Se parte del texto original y se aplican sustituciones con expresiones regulares:
   let resultado = texto
 
-  if (chkDiccionario.checked) {
+  if (chkExpReg.checked) {
     resultado = texto
       // Se sustituyen los DNIs españoles.
       // \b asegura que sea una palabra completa.
@@ -46,6 +45,14 @@ function procesar() {
 
       // Se sustituyen los email tipo jose@example.es
       .replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, "[EMAIL]");
+  } else if (chkIA.checked) {
+
+    resultado = anonimizarIA(texto);
+    
+  } else if (chkDiccionario.checked) {
+
+    resultado = anonimizarDiccionario(texto);
+
   }
 
   // Se crea un objeto llamado "datos" que agrupa toda la información final:
